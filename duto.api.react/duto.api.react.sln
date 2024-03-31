@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "duto.api.react.Server", "duto.api.react.Server\duto.api.react.Server.csproj", "{C9D80A1B-3A9D-41A4-AA58-8F28A0AC1413}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "duto.api.react.Server", "duto.api.react.Server\duto.api.react.Server.csproj", "{C9D80A1B-3A9D-41A4-AA58-8F28A0AC1413}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "duto.api.react.client", "duto.api.react.client\duto.api.react.client.esproj", "{8EC9423D-E5CE-4D12-9505-F9B48100481C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceRecord.Core.WebAPI", "..\..\ServiceRecord2024\ServiceRecord.Core.WebAPI\ServiceRecord.Core.WebAPI.csproj", "{6D8795C8-161B-42A4-A95E-A39BC32D0E03}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{8EC9423D-E5CE-4D12-9505-F9B48100481C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EC9423D-E5CE-4D12-9505-F9B48100481C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8EC9423D-E5CE-4D12-9505-F9B48100481C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{6D8795C8-161B-42A4-A95E-A39BC32D0E03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D8795C8-161B-42A4-A95E-A39BC32D0E03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D8795C8-161B-42A4-A95E-A39BC32D0E03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D8795C8-161B-42A4-A95E-A39BC32D0E03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
