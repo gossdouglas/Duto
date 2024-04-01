@@ -30,20 +30,39 @@ namespace duto.api.react.Server.Controllers
 
         [HttpPost]
         [Route("GetForexCandles")]
-        public async Task<ReturnObject<ForexReturnDataVm>> GetForexCandles()
+        public async Task<ReturnObject<ForexReturnDataVm>> GetForexCandles(GetForexCandlesConfig config)
         {
 
             ForexReturnDataVm data = new ForexReturnDataVm();
 
             using (HttpClient client = new HttpClient())
             {
-                string url = "https://api.polygon.io/v2/aggs/ticker/C:EURUSD/range/1/hour/2024-03-15/2024-03-15?apiKey=CNf_dxojmDFqzsMz6p6iX5pTnGh61Vep";
+                //string url = "https://api.polygon.io/v2/aggs/ticker/C:EURUSD/range/1/hour/2024-03-15/2024-03-15?apiKey=CNf_dxojmDFqzsMz6p6iX5pTnGh61Vep";
+                string url = "https://api.polygon.io/v2/aggs/ticker/C:" + config.forexTicker + 
+                    "/range/" + 
+                    config.multiplier + 
+                    "/" + config.timespan + 
+                    "/" + config.from + 
+                    "/" + config.to + "?" +
+                    "adjusted=" + config.adjusted + "&" +
+                    "sort=" + config.sort + "&" +
+                    "limit=" + config.limit + "&" +
+                    "apiKey=CNf_dxojmDFqzsMz6p6iX5pTnGh61Vep";
+
                 HttpResponseMessage response = await client.GetAsync(url);
 
                 if (response.IsSuccessStatusCode)
                 {
                     string result = await response.Content.ReadAsStringAsync();
                     data = JsonConvert.DeserializeObject<ForexReturnDataVm>(result);
+                }
+
+                foreach (ForexCandle c in data.results)
+                {                       
+                    DateTimeOffset unixTimeMillis = DateTimeOffset.FromUnixTimeMilliseconds(c.t);
+
+                    c.dt = unixTimeMillis;
+                    //System.Diagnostics.Debug.WriteLine("milliseconds of " + c.t + "= " + unixTimeMillis);
                 }
             }
 

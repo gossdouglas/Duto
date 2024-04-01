@@ -27,6 +27,8 @@ namespace duto.api.react.Server.Models
         public double l { get; set; }
         //The Unix Msec timestamp for the start of the aggregate window.
         public long t { get; set; }
+        //The Unix Msec timestamp for the start of the aggregate window.
+        public DateTimeOffset? dt { get; set; }
         //The number of transactions in the aggregate window.
         public int n { get; set; }
     }
